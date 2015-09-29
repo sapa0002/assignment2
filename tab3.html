@@ -3,7 +3,7 @@
 			<h1>The List:</h1>
 			
 			<ul>
-				<li ng-repeat="item in list">{{item.name}} <button ng-click="removeItem()"> Delete </button></li>
+				<li ng-repeat="item in list">{{item.name}} <button ng-click="removeItem($index)"> Delete </button></li>
 			</ul>
 
 		</div>

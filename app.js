@@ -1,87 +1,71 @@
 var app = angular.module('demoApp' , ['ngRoute', 'ngStorage']);
 
 app.controller('Tab1', function($scope, $route, $routeParams, $location, $localStorage) {
- $scope.list = [
-        {'name': '1st list item'},
-        {'name': '2nd list item'},
-        {'name': '3rd list item'}
-      ];
+ $scope.list = [];
+ $scope.listCont=$localStorage;
+    
+if($scope.listCont){
+    $scope.listCont=[];    
+} 
+    
+    
       $scope.addItem = function(){
-        $scope.list.push({
-          name: $scope.listitem
-        });
+      $scope.list.push({name: $scope.listitem});
+      $scope.listCont = $scope.list;   
       };
+    
       $scope.removeItem = function(index){
         $scope.list.splice(index, 1);
+        $scope.listCont = $scope.list; 
       };
 
-      $scope.loadData =  function(){
-          $localStorage.list;
-        };
   });
 
 app.controller('Tab2', function($scope, $route, $routeParams, $location, $localStorage) {
- $scope.list = [
-        {'name': '1st list item'},
-        {'name': '2nd list item'},
-        {'name': '3rd list item'}
-      ];
+ $scope.list = [];
+   $scope.listCont2=$localStorage;
+    
+if($scope.listCont2){
+    $scope.listCont2=[];    
+} 
+    
+    
       $scope.addItem = function(){
-        $scope.list.push({
-          name: $scope.listitem
-        });
+      $scope.list.push({name: $scope.listitem});
+      $scope.listCont2 = $scope.list;   
       };
+    
       $scope.removeItem = function(index){
         $scope.list.splice(index, 1);
+        $scope.listCont2 = $scope.list; 
       };
-
-      
-        $scope.saveData =  function(){
-          $localStorage.list;
-        };
 
 
    });
 
 
 app.controller('Tab3', function($scope, $route, $routeParams, $location, $localStorage){
-      $scope.list = [
-        {'name': '1st list item'},
-        {'name': '2nd list item'},
-        {'name': '3rd list item'}
-      ];
+   $scope.list = [];
+   $scope.listCont=$localStorage;
+    
+if($scope.listCont3){
+    $scope.listCont3=[];    
+} 
+    
+    
       $scope.addItem = function(){
-        $scope.list.push({
-          name: $scope.listitem
-        });
+      $scope.list.push({name: $scope.listitem});
+      $scope.listCont3 = $scope.list;   
       };
+    
       $scope.removeItem = function(index){
         $scope.list.splice(index, 1);
+        $scope.listCont3 = $scope.list; 
       };
-
-       $scope.saveData =  function(){
-          $localStorage.list;
-        };
-
 
 });
   
-  app.controller('MainCtrl', function($scope, $route, $routeParams, $location, $localStorage) {
-
-    $scope.list = [
-        {'name': '1st list item'},
-        {'name': '2nd list item'},
-        {'name': '3rd list item'}
-      ];
-      $scope.addItem = function(){
-        $scope.list.push({
-          name: $scope.listitem
-        });
-      };
-      $scope.removeItem = function(index){
-        $scope.list.splice(index, 1);
-      };
-   }); 
+app.controller('MainCtrl', function($scope, $route, $routeParams, $location, $localStorage) {}); 
 
  app.config(function($routeProvider, $locationProvider) {
 
