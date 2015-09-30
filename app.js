@@ -2,21 +2,21 @@ var app = angular.module('demoApp' , ['ngRoute', 'ngStorage']);
 
 app.controller('Tab1', function($scope, $route, $routeParams, $location, $localStorage) {
  $scope.list = [];
- $scope.listCont=$localStorage;
+ //$localStorage.listCont= $scope.list;
     
-if($scope.listCont){
-    $scope.listCont=[];    
+if($localStorage.listCont){
+    $localStorage.listCont= $scope.list;    
 } 
     
     
       $scope.addItem = function(){
       $scope.list.push({name: $scope.listitem});
-      $scope.listCont = $scope.list;   
+        $localStorage.listCont = $scope.list;   
       };
     
       $scope.removeItem = function(index){
         $scope.list.splice(index, 1);
-        $scope.listCont = $scope.list; 
+        $$localStorage.listCont = $scope.list; 
       };
 
   });
